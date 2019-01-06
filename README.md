@@ -67,59 +67,83 @@ for player in players:
 # Classes
 
 ## Barotrauma class
+
 Note: this may not be up to date, at all
 
 **Barotrauma(path_to_barotrauma_pipefile, path_to_unix_domain_socket, writetimeout=0.1, responsetime=0.1)**
+
 constructor for Barotrauma
 
 **send_command(command, args=[], followup=[])**
+
 Returns: none
+
 send_command sends a command with args to barotrauma then follows up with commands in followup with a delay of writetimeout between each command
 
 **response(command, args=[])**
+
 Returns: list of lines (as strings) of command response
+
 response sends a command with args to barotrauma then waits for responsetime. It then returns barotraumas response. Keep in mind there may be extra text after response that is not barotraumas response to the command as it only trims off the lines in udsbuffer before the command. It does not include the command as the first line of the response
 
 **ban_name(name, reason, duration)**
+
 Returns: none
+
 bans user by name
 
 **ban_ip(ip, reason, duration)**
+
 Returns: none
+
 bans user by ip
 
 **get_clients()**
+
 Returns: list of Player objects
+
 gets all clients connected to the server
 
 **udsbuffer**
+
 Variable, holds the udsbuffer object
 
 # Udsbuffer
+
 Udsbuffer holds the buffer for incoming logs from barotrauma, dont make your own of this
 
 **Udsbuffer(size=128)**
+
 Constructor for Udsbuffer
 
 **add(data)**
+
 Returns: none
+
 appends data to the buffer
 
 **flush()**
+
 Returns: none
+
 flushes buffer
 
 **buffer**
+
 Variable, holds the data sent from the server in a list of lines
 
 ## Player
+
 Purely a class for returning information from a function
 
 **name**
+
 Variable, the players name
 
 **id**
+
 Variable, the players id
 
 **ip**
+
 Variable, the players ip
