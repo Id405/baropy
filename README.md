@@ -108,6 +108,10 @@ gets all clients connected to the server
 
 Variable, holds the udsbuffer object
 
+**get_player_by_name(name) get_player_by_id(id) get_player_by_ip(ip)**
+
+Returns: Player or -1 if the player couldnt be found
+
 # Udsbuffer
 
 Udsbuffer holds the buffer for incoming logs from barotrauma, dont make your own of this
@@ -134,8 +138,6 @@ Variable, holds the data sent from the server in a list of lines
 
 ## Player
 
-Purely a class for returning information from a function
-
 **name**
 
 Variable, the players name
@@ -147,3 +149,11 @@ Variable, the players id
 **ip**
 
 Variable, the players ip
+
+**ban_ip(reason, duration) and ban_name(reason, duration)**
+
+Returns: none
+
+**give_rank(rank) and give_permission(permission)**
+
+Returns: none
