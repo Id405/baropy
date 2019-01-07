@@ -3,13 +3,13 @@ Python library for interfacing with barotrauma
 Only unix compatible
 
 # Setting Up Barotrauma To Work With Baropy
-barotrauma must be run so that a pipefile pipes into it and it pipes out to a tcp server pointing to a unix domain socket, ideally this tcp server should be able to accept multiple connections so multiple scripts can interface with barotrauma. Both ncat from nmap and netcat-openbsd cannot accept multiple connections while pointing to a unix domain socket and I cannot find a tool that can do this so I wrote my own with the help of tazial
+Barotrauma must be run so that a pipefile pipes into it and it pipes out to a tcp server pointing to a unix domain socket, ideally this tcp server should be able to accept multiple connections so multiple scripts can interface with barotrauma. Both ncat from nmap and netcat-openbsd cannot accept multiple connections while pointing to a unix domain socket and I cannot find a tool that can do this so I wrote my own with the help of tazial
 
 ```python
+#!/usr/bin/python3
 # pipe2net
 # forwards stdin to a tcp server that allows multiple connections
 # written by 8o7wer and tazial
-#!/usr/bin/python3
 import socket
 import sys 
 import os
@@ -108,6 +108,10 @@ gets all clients connected to the server
 
 Variable, holds the udsbuffer object
 
+**get_player_by_name(name) get_player_by_id(id) get_player_by_ip(ip)**
+
+Returns: Player or -1 if the player couldnt be found
+
 # Udsbuffer
 
 Udsbuffer holds the buffer for incoming logs from barotrauma, dont make your own of this
@@ -134,8 +138,6 @@ Variable, holds the data sent from the server in a list of lines
 
 ## Player
 
-Purely a class for returning information from a function
-
 **name**
 
 Variable, the players name
@@ -147,3 +149,11 @@ Variable, the players id
 **ip**
 
 Variable, the players ip
+
+**ban_ip(reason, duration) and ban_name(reason, duration)**
+
+Returns: none
+
+**give_rank(rank) and give_permission(permission)**
+
+Returns: none
