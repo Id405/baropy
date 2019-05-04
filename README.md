@@ -92,11 +92,15 @@ Returns: none
 
 bans user by name
 
+*depreciated, use player.ban_ip() instead*
+
 **ban_ip(ip, reason, duration)**
 
 Returns: none
 
 bans user by ip
+
+*depreciated, use player.ban_ip() instead*
 
 **get_clients()**
 
